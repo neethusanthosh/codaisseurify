@@ -1,0 +1,16 @@
+
+<%= form_for @artist do |artist| %>
+  <%= artist.label :name %>
+  <%= artist.text_field :name %>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <%= artist.label :image_url %>
+  <%= artist.text_field :image_url %>
+<br><br><br>
+<%= artist.submit (@artist.new_record? ? "Create" : "Update") %>
+
+<% end %>
+<br><br><br><hr>
+ <%= link_to "All Artists", artists_path %>
