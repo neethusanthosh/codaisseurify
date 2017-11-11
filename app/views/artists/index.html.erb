@@ -1,5 +1,7 @@
 
 <h1 style="border-bottom: 1px solid black; width:110px;">Artists</h1>
 <% @artists.each do |artist| %>
-  <li><%= artist.name %></li>
+  <li><%= link_to artist.name, artist_path(artist.id) %></li>
 <% end %>
+<hr>
+<%= link_to "[Home Page]", root_path %>
