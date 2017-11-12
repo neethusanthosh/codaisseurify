@@ -1,0 +1,14 @@
+<h1>New Song</h1>
+<%= @artist.name%>
+<%= form_for @artist do |artist| %>
+  <%= artist.fields_for :song do |s|%>
+
+  <%= s.label :title %>
+  <%= s.text_field :title %>
+
+  <%= s.label :genere %>
+  <%= s.text_field :genere %>
+
+  <%= s.submit "save" %>
+<% end %>
+<% end %>
