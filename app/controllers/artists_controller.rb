@@ -12,8 +12,6 @@ class ArtistsController < ApplicationController
    end
 
    def create
-      artist_params = params.require(:artist).permit(:name, :image_url)
-
       @artist = Artist.new(artist_params)
 
       if @artist.save
@@ -29,9 +27,6 @@ class ArtistsController < ApplicationController
 
     def update
       @artist = Artist.find(params[:id])
-
-      artist_params = params.require(:artist).permit(:name, :image_url)
-
         if @artist.update_attributes(artist_params)
           redirect_to @artist
         else
@@ -46,4 +41,11 @@ class ArtistsController < ApplicationController
 
     redirect_to artists_path
   end
+
+
+  private
+
+   def artist_params
+     params.require(:artist).permit(:name, :image_url, :song_id)
+   end
 end
